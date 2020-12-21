@@ -57,7 +57,7 @@ bir örnek ile:  "2020-03-03 23:10:14" anınında 100farklı cihaz trendyol'u a�
 
 --"2020-03-03 23:15" 0 aktif kullanıcı vardır.
 
-en basit çözüm ile sadece "2020-03-03 23:14" 'deki aktif kullanıcıları hesaplamak için:
+#### en basit çözüm ile sadece "2020-03-03 23:14" 'deki aktif kullanıcıları hesaplamak için:
 
 --select timestamp '2020-03-03 23:14:00' view_period
 
@@ -67,7 +67,7 @@ en basit çözüm ile sadece "2020-03-03 23:14" 'deki aktif kullanıcıları hes
  
 --where timestamp_trunc(view_ts,minute) between '2020-03-03 23:10:00' and '2020-03-03 23:14:00'
 
-Yazacağınız sorgu/sorguların çıktısında beklediğimiz çıktı sitedeki dakikalık aktif kullanıcı sayısı:
+#### Yazacağınız sorgu/sorguların çıktısında beklediğimiz çıktı sitedeki dakikalık aktif kullanıcı sayısı:
 
 -- view_period            active_user_count
 
