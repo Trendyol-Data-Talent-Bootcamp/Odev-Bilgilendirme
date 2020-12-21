@@ -37,9 +37,9 @@ DATASET_ADINIZ kısmına kendi dataset adınızı yazarak tabloyu create ettikte
 
 --tabloya veri akışı dakikada 1 defa gerçekleşir, 23:10:00 anında 23:09:00-23:09:59 kayıtları tabloya eklenir.
 
-Bu çalışmada çıkarmak istediğimiz bilgi, günün her bir dakikası için aktif kullanıcı sayısının hesaplanması.
+### Bu çalışmada çıkarmak istediğimiz bilgi, günün her bir dakikası için aktif kullanıcı sayısının hesaplanması.
 
-### Aktif kullanıcı ne demek?
+Aktif kullanıcı ne demek?
 --sitede herhangi bir sayfa ziyareti sonrasında 5dk boyunca aktif kullanıcı sayılır.
 
 --bir örnek ile, 
