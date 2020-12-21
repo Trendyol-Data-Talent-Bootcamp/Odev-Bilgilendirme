@@ -35,16 +35,17 @@ DATASET_ADINIZ kısmına kendi dataset adınızı yazarak tabloyu create ettikte
 
 --deviceid: sayfa ziyareti yapan cihaz id'si. Bizim için tekil kullanıcıyı da ifade eder.
 
---tabloya veri akışı dakikada 1 defa gerçekleşir, 23:10:00 anında 23:09:00-23:09:59 kayıtları tabloya eklenir.
+tabloya veri akışı dakikada 1 defa gerçekleşir, 23:10:00 anında 23:09:00-23:09:59 kayıtları tabloya eklenir.
 
 ### Bu çalışmada çıkarmak istediğimiz bilgi, günün her bir dakikası için aktif kullanıcı sayısının hesaplanması.
 
 Aktif kullanıcı ne demek?
---sitede herhangi bir sayfa ziyareti sonrasında 5dk boyunca aktif kullanıcı sayılır.
 
---bir örnek ile, 
+sitede herhangi bir sayfa ziyareti sonrasında 5dk boyunca aktif kullanıcı sayılır.
 
----- "2020-03-03 23:10:14" anınında 100farklı cihaz trendyol'u açıp kapattı ise ve sonrasında hiç bir ziyaret gelmedi ise.
+bir örnek ile, 
+
+-- "2020-03-03 23:10:14" anınında 100farklı cihaz trendyol'u açıp kapattı ise ve sonrasında hiç bir ziyaret gelmedi ise.
 
 --"2020-03-03 23:10" 100 aktif kullanıcı vardır.
 
@@ -58,17 +59,17 @@ Aktif kullanıcı ne demek?
 
 --"2020-03-03 23:15" 0 aktif kullanıcı vardır.
 
---en basit çözüm ile sadece "2020-03-03 23:14" 'deki aktif kullanıcıları hesaplamak için:
+en basit çözüm ile sadece "2020-03-03 23:14" 'deki aktif kullanıcıları hesaplamak için:
 
 --select timestamp '2020-03-03 23:14:00' view_period
 
  --     ,count(distinct deviceid) active_user_count
       
- from sample.pageview
+-- from sample.pageview
  
-where timestamp_trunc(view_ts,minute) between '2020-03-03 23:10:00' and '2020-03-03 23:14:00'
+--where timestamp_trunc(view_ts,minute) between '2020-03-03 23:10:00' and '2020-03-03 23:14:00'
 
---Yazacağınız sorgu/sorguların çıktısında beklediğimiz çıktı sitedeki dakikalık aktif kullanıcı sayısı:
+Yazacağınız sorgu/sorguların çıktısında beklediğimiz çıktı sitedeki dakikalık aktif kullanıcı sayısı:
 -- view_period            active_user_count
 
 -- 2020-03-03 23:14:00            123123123
@@ -79,12 +80,12 @@ where timestamp_trunc(view_ts,minute) between '2020-03-03 23:10:00' and '2020-03
 
 ### NOT: Çözümde göz önünde bulundurmanızı istediğimiz koşullar:
 
--- exact sonuç aramıyoruz, %2'ye kadar sapmalar kabul edilebilir, approx fonksiyonları kullanabilirsiniz
+- exact sonuç aramıyoruz, %2'ye kadar sapmalar kabul edilebilir, approx fonksiyonları kullanabilirsiniz
 
--- örnek tabloda 289m kayıt var, bu aylar öncesinin verisi, optimizasyonlar için summary, ara tablo oluşturabilirsiniz.
+- örnek tabloda 289m kayıt var, bu aylar öncesinin verisi, optimizasyonlar için summary, ara tablo oluşturabilirsiniz.
 
--- tek sorguda hesaplayabilirsiniz, temporary tablolar oluşturup, 1den fazla sorgu ile de çözebilirsiniz.
+- tek sorguda hesaplayabilirsiniz, temporary tablolar oluşturup, 1den fazla sorgu ile de çözebilirsiniz.
 
--- hll_count.init, hll_count.merge, hll_count.merge_partial, hll_count.extract kullanabilirsiniz.
+- hll_count.init, hll_count.merge, hll_count.merge_partial, hll_count.extract kullanabilirsiniz.
 
--- https://cloud.google.com/bigquery/docs/reference/standard-sql/hll_functions
+- https://cloud.google.com/bigquery/docs/reference/standard-sql/hll_functions
