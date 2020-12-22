@@ -139,8 +139,10 @@ Product database'indeki `public.content_category` tablosununun '2020-12-21 00:59
 
 ​
 *`create or replace table` statement: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement*
+
 ​
 *`merge` statement: https://cloud.google.com/bigquery/docs/using-dml-with-partitioned-tables#using_a_merge_statement*
+
 ​
 *2 tabloyu kıyaslamak için her satırın hash'ini alıp bu hash değerleri üzerinden joinleyip bir tabloda olup diğerinde olmayan hash değerleri var mıdır diye kontrol edebilirsiniz.*
 
