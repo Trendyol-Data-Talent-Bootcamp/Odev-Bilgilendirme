@@ -11,6 +11,10 @@ https://www.kaggle.com/learn/intro-to-sql
 
 
 # week-2
+
+## Ödevi almak için lütfen linke tıklayın.
+**Link:** https://classroom.github.com/a/0nXW8OCq
+
 2.HAFTA ÖDEV LİNKLERİ
 
 ### Soru 1) 1980’den itibaren spor grubu bazında en çok madalya alan 1. 3. 5. ülkeyi bulalım.
